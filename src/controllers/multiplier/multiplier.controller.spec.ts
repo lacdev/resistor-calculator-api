@@ -1,18 +1,23 @@
-import { Test, TestingModule } from '@nestjs/testing';
 import { MultiplierController } from './multiplier.controller';
+import { MultiplierService } from '../../services/multiplier/multiplier.service';
+import { MULTIPLIER_MOCK_DATA } from '../../mocks/multiplier';
 
 describe('MultiplierController', () => {
-  let controller: MultiplierController;
+  let multiplierController: MultiplierController;
+  let multiplierService: MultiplierService;
 
-  beforeEach(async () => {
-    const module: TestingModule = await Test.createTestingModule({
-      controllers: [MultiplierController],
-    }).compile();
-
-    controller = module.get<MultiplierController>(MultiplierController);
+  beforeEach(() => {
+    multiplierService = new MultiplierService();
+    multiplierController = new MultiplierController(multiplierService);
   });
 
-  it('should be defined', () => {
-    expect(controller).toBeDefined();
+  describe('findAll', () => {
+    it('should return an array of multiplier values correctly', async () => {
+      const result = MULTIPLIER_MOCK_DATA;
+
+      jest.spyOn(multiplierService, 'findAll').mockImplementation(() => result);
+
+      expect(multiplierController.findAll()).toBe(result);
+    });
   });
 });
