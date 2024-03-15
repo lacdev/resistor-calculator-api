@@ -1,18 +1,23 @@
-import { Test, TestingModule } from '@nestjs/testing';
 import { ToleranceController } from './tolerance.controller';
+import { ToleranceService } from '../../services/tolerance/tolerance.service';
+import { TOLERANCE_MOCK_DATA } from '../../mocks/tolerance';
 
 describe('ToleranceController', () => {
-  let controller: ToleranceController;
+  let toleranceController: ToleranceController;
+  let toleranceService: ToleranceService;
 
-  beforeEach(async () => {
-    const module: TestingModule = await Test.createTestingModule({
-      controllers: [ToleranceController],
-    }).compile();
-
-    controller = module.get<ToleranceController>(ToleranceController);
+  beforeEach(() => {
+    toleranceService = new ToleranceService();
+    toleranceController = new ToleranceController(toleranceService);
   });
 
-  it('should be defined', () => {
-    expect(controller).toBeDefined();
+  describe('findAll', () => {
+    it('should return an array of multiplier values correctly', async () => {
+      const result = TOLERANCE_MOCK_DATA;
+
+      jest.spyOn(toleranceService, 'findAll').mockImplementation(() => result);
+
+      expect(toleranceController.findAll()).toBe(result);
+    });
   });
 });
