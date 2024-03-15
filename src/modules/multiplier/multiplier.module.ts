@@ -4,4 +4,4 @@ import { MultiplierController } from 'src/controllers/multiplier/multiplier.cont
 import { MultiplierService } from 'src/services/multiplier/multiplier.service';
 
 @Module({ controllers: [MultiplierController], providers: [MultiplierService] })
-export class MultipliersModule {}
+export class MultiplierModule {}

@@ -1,10 +1,10 @@
 import { Module } from '@nestjs/common';
 
-import { MultipliersModule } from '../multipliers/multipliers.module';
-import { TolerancesModule } from '../tolerances/tolerances.module';
+import { MultiplierModule } from '../multiplier/multiplier.module';
+import { ToleranceModule } from '../tolerance/tolerance.module';
 
 @Module({
-  imports: [MultipliersModule, TolerancesModule],
+  imports: [MultiplierModule, ToleranceModule],
   controllers: [],
   providers: [],
 })

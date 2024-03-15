@@ -4,4 +4,4 @@ import { ToleranceController } from 'src/controllers/tolerance/tolerance.control
 import { ToleranceService } from 'src/services/tolerance/tolerance.service';
 
 @Module({ controllers: [ToleranceController], providers: [ToleranceService] })
-export class TolerancesModule {}
+export class ToleranceModule {}
