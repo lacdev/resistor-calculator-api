@@ -35,10 +35,10 @@ $ npm install
 ## Running the app
 
 ```bash
-# development
+# development on PORT 8000
 $ npm run start
 
-# watch mode
+# watch mode on PORT 8000
 $ npm run start:dev
 
 # production mode
