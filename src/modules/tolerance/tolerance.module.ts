@@ -1,7 +1,13 @@
 import { Module } from '@nestjs/common';
 
-import { ToleranceController } from 'src/controllers/tolerance/tolerance.controller';
-import { ToleranceService } from 'src/services/tolerance/tolerance.service';
+import { ToleranceController } from '../../controllers/tolerance/tolerance.controller';
+import { ToleranceService } from '../../services/tolerance/tolerance.service';
+import { Tolerance } from '../../entities/tolerance.entity';
+import { TypeOrmModule } from '@nestjs/typeorm';
 
-@Module({ controllers: [ToleranceController], providers: [ToleranceService] })
+@Module({
+  imports: [TypeOrmModule.forFeature([Tolerance])],
+  controllers: [ToleranceController],
+  providers: [ToleranceService],
+})
 export class ToleranceModule {}
