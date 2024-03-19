@@ -25,6 +25,12 @@ $ npm run start:dev
 
 ```
 
+## To visit the Swagger Documentation Page please visit:
+
+```bash
+http://localhost:8000/api
+```
+
 ## Test (Make sure you have the docker containers runnning before tests)
 
 ```bash
