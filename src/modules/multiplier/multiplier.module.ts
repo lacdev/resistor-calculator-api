@@ -1,7 +1,13 @@
 import { Module } from '@nestjs/common';
+import { TypeOrmModule } from '@nestjs/typeorm';
 
-import { MultiplierController } from 'src/controllers/multiplier/multiplier.controller';
-import { MultiplierService } from 'src/services/multiplier/multiplier.service';
+import { MultiplierService } from '../../services/multiplier/multiplier.service';
+import { Multiplier } from '../../entities/multiplier.entity';
+import { MultiplierController } from '../../controllers/multiplier/multiplier.controller';
 
-@Module({ controllers: [MultiplierController], providers: [MultiplierService] })
+@Module({
+  imports: [TypeOrmModule.forFeature([Multiplier])],
+  controllers: [MultiplierController],
+  providers: [MultiplierService],
+})
 export class MultiplierModule {}

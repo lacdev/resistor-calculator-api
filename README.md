@@ -10,6 +10,12 @@ $ npm install
 
 ## Running the app
 
+### First make sure you have Docker installed in your computer and run this command at the root of the project.
+
+```bash
+docker-compose up
+```
+
 ```bash
 # development on PORT 8000
 $ npm run start
@@ -17,11 +23,9 @@ $ npm run start
 # watch mode on PORT 8000
 $ npm run start:dev
 
-# production mode
-$ npm run start:prod
 ```
 
-## Test
+## Test (Make sure you have the docker containers runnning before tests)
 
 ```bash
 # unit tests

@@ -1,14 +1,17 @@
 import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
 
 import { Multiplier } from '../../entities/multiplier.entity';
 
-import { MULTIPLIER_MOCK_DATA } from '../../mocks/multiplier';
-
 @Injectable()
 export class MultiplierService {
-  private multipliers: Multiplier[] = [...MULTIPLIER_MOCK_DATA];
+  constructor(
+    @InjectRepository(Multiplier)
+    private readonly multiplierRepository: Repository<Multiplier>,
+  ) {}
 
-  findAll() {
-    return this.multipliers;
+  async findAll() {
+    return await this.multiplierRepository.find();
   }
 }

@@ -1,14 +1,17 @@
 import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
 
 import { Tolerance } from '../../entities/tolerance.entity';
 
-import { TOLERANCE_MOCK_DATA } from '../../mocks/tolerance';
-
 @Injectable()
 export class ToleranceService {
-  private tolerances: Tolerance[] = [...TOLERANCE_MOCK_DATA];
+  constructor(
+    @InjectRepository(Tolerance)
+    private readonly toleranceRepository: Repository<Tolerance>,
+  ) {}
 
-  findAll() {
-    return this.tolerances;
+  async findAll() {
+    return await this.toleranceRepository.find();
   }
 }
