@@ -8,13 +8,13 @@
 $ npm install
 ```
 
-## Running the app
-
-### First make sure you have Docker installed in your computer and run this command at the root of the project.
+## First make sure you have Docker installed in your computer and run this command at the root of the project.
 
 ```bash
 docker-compose up
 ```
+
+## Then run the app locally using any of these in dev mode.
 
 ```bash
 # development on PORT 8000
